@@ -60,5 +60,26 @@ class Test_kata_range_vid < Minitest::Test
         assert_equal true, Kata_range.contains("[2,8]", "{5,7}")
     end
 
+    def test_should_show_all_the_elements_of_a_range
+        assert_equal [7,8], Kata_range.get_all_points("(6,9)")
+    end
+
+    def test_if_a_range_contains_all_the_elements_of_an_other_range
+        assert_equal true, Kata_range.contains_a_range("[2,9]","[3,4]")
+    end
+
+    def test_should_return_the_end_points_of_the_range
+        assert_equal [4,5], Kata_range.show_the_end_points("(3,6)")
+    end
+
+    def test_if_the_ranges_overlaps_each_other
+        assert_equal true, Kata_range.overlapse_with("(3,6)", "[4,89]")
+    end
+
+    def test_if_two_ranges_are_equal
+        assert_equal true, Kata_range.is_equal?('[3,6]', '(2,7)')
+    end
+
+
 
 end
